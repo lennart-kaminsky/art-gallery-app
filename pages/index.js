@@ -2,6 +2,7 @@ import useSWR from "swr";
 
 import ArtPieces from "@/components/ArtPieces/";
 import styled from "styled-components";
+import Spotlight from "@/components/Spotlight";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -31,9 +32,13 @@ export default function HomePage() {
   if (isLoading) {
     return <h1>is loading...</h1>;
   }
+  function getRandomPiece() {
+    return data[Math.floor(Math.random() * data.length)];
+  }
 
   return (
     <div>
+      <Spotlight piece={getRandomPiece()} />
       <StyledTitle>Art Gallery App</StyledTitle>
       <ArtPieces pieces={data}></ArtPieces>
     </div>
