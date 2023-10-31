@@ -35,10 +35,10 @@ export default function HomePage() {
   function getRandomPiece() {
     return data[Math.floor(Math.random() * data.length)];
   }
-
+  const randomPiece = getRandomPiece();
   return (
     <div>
-      <Spotlight piece={getRandomPiece()} />
+      <Spotlight image={randomPiece.imageSource} artist={randomPiece.artist} />
       <StyledTitle>Art Gallery App</StyledTitle>
       <ArtPieces pieces={data}></ArtPieces>
     </div>

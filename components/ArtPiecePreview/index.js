@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { StyledImage } from "../Image";
 
 import styled from "styled-components";
 
@@ -19,10 +19,4 @@ const StyledListItem = styled.li`
   flex-direction: column;
   align-items: center;
   text-align: center;
-`;
-
-const StyledImage = styled(Image)`
-  object-fit: cover;
-  width: 250px;
-  height: 50%;
 `;
