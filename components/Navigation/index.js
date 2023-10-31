@@ -24,6 +24,7 @@ const StyledNavigation = styled.nav`
   bottom: 0;
   color: white;
   padding: 15px 0;
+  z-index: 1;
 `;
 
 const StyledList = styled.ul`
