@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "@/components/Layout";
+import { useState } from "react";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -21,6 +22,26 @@ const fetcher = async (url) => {
 export default function App({ Component, pageProps }) {
   const url = "https://example-apis.vercel.app/api/art";
   const { data, error, isLoading } = useSWR(url, fetcher);
+
+  const [artPiecesInfo, setArtPiecesInfo] = useState([]);
+
+  function handleToggleFavorite(slug) {
+    setArtPiecesInfo((artPiecesInfo) => {
+      // find the art piece in the state
+      const info = artPiecesInfo.find((info) => info.slug === slug);
+
+      // if the art piece is already in the state, toggle the isFavorite property
+      if (info) {
+        return artPiecesInfo.map((info) =>
+          info.slug === slug ? { ...info, isFavorite: !info.isFavorite } : info
+        );
+      }
+
+      // if the movie is not in the state, add it with isFavorite set to true
+      return [...artPiecesInfo, { slug, isFavorite: true }];
+    });
+  }
+
   console.log(data);
 
   if (error) {
@@ -30,6 +51,8 @@ export default function App({ Component, pageProps }) {
   if (isLoading) {
     return <h1>is loading...</h1>;
   }
+
+  console.log("Art Pieces Info: ", artPiecesInfo);
 
   return (
     <>
