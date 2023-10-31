@@ -18,8 +18,6 @@ export default function ArtPieces({ pieces }) {
 }
 
 const StyledList = styled.ul`
-  list-style: none;
-  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 30px;
