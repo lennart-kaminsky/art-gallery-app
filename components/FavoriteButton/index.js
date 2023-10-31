@@ -16,6 +16,6 @@ export default function FavoriteButton() {
 const StyledButton = styled.button`
   position: absolute;
   top: 0px;
-  right: 150px;
+  right: 0px;
   z-index: 1;
 `;
