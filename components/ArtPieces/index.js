@@ -7,6 +7,7 @@ export default function ArtPieces({ pieces }) {
     <StyledList>
       {pieces.map((piece) => (
         <ArtPiecePreview
+          slug={piece.slug}
           key={piece.slug}
           artist={piece.artist}
           image={piece.imageSource}
