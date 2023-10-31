@@ -1,10 +1,11 @@
 import { ST } from "next/dist/shared/lib/utils";
 import { StyledImage } from "../Image";
 import styled from "styled-components";
+import Link from "next/link";
 
-export default function Spotlight({ image, artist }) {
+export default function Spotlight({ image, artist, slug }) {
   return (
-    <StyledDivWrapper>
+    <StyledLink href={`art-pieces/${slug}`}>
       <StyledImage
         src={image}
         alt="randomPiece"
@@ -12,12 +13,14 @@ export default function Spotlight({ image, artist }) {
         width={200}
       ></StyledImage>
       <p>{artist}</p>
-    </StyledDivWrapper>
+    </StyledLink>
   );
 }
 
-const StyledDivWrapper = styled.div`
+const StyledLink = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-decoration: none;
+  color: black;
 `;

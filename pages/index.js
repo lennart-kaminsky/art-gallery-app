@@ -1,6 +1,7 @@
-import ArtPieces from "@/components/ArtPieces/";
+import ArtPieces from "@/components/ArtPieces";
 import styled from "styled-components";
 import Spotlight from "@/components/Spotlight";
+import { StyledTitle } from "@/components/StyledText";
 
 export default function SpotLightPage({ data }) {
   function getRandomPiece() {
@@ -9,14 +10,13 @@ export default function SpotLightPage({ data }) {
   const randomPiece = getRandomPiece();
   return (
     <div>
-      <StyledTitle>Art Gallery App</StyledTitle>
+      <StyledTitle>Spotlight</StyledTitle>
 
-      <Spotlight image={randomPiece.imageSource} artist={randomPiece.artist} />
+      <Spotlight
+        slug={randomPiece.slug}
+        image={randomPiece.imageSource}
+        artist={randomPiece.artist}
+      />
     </div>
   );
 }
-
-const StyledTitle = styled.h1`
-  text-align: center;
-  margin-block: 30px 50px;
-`;
